@@ -1,0 +1,7 @@
+
+POST http://localhost:5242/api/v1/auth/validate
+Accept: application/json
+
+{ "email": "_alex@email.com" }
+
+###

@@ -1,0 +1,60 @@
+<div class="register-container">
+  <mat-card class="register-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="title">Step 2</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-error *ngIf="serverError?.errors?.Email">
+        <ul>
+          <li *ngFor="let error of serverError?.errors?.Email">{{ error }}</li>
+        </ul>
+      </mat-error>
+
+      <mat-error *ngIf="serverError?.errors?.Password">
+        <ul>
+          <li *ngFor="let error of serverError?.errors?.Password">{{ error }}</li>
+        </ul>
+      </mat-error>
+
+      <mat-error *ngIf="serverError?.errors?.ProvinceId">
+        <ul>
+          <li *ngFor="let error of serverError?.errors?.ProvinceId">{{ error }}</li>
+        </ul>
+      </mat-error>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <!-- Country Select -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countries" [value]="country.id">
+              {{ country.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerForm.get('country')?.invalid && registerForm.get('country')?.touched">
+            Country is required field
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Province Select -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Province</mat-label>
+          <mat-select formControlName="province">
+            <mat-option *ngFor="let province of provinces" [value]="province.id">
+              {{ province.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerForm.get('province')?.invalid && registerForm.get('province')?.touched">
+            Province is required field
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Register Button -->
+        <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="registerForm.invalid">
+          Save
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

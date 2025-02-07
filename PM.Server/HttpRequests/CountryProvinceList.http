@@ -1,0 +1,5 @@
+
+GET http://localhost:5242/api/v1/country/province/list?countryid=9f3032d7-7f0f-408e-913b-0a093931ed5a
+Accept: application/json
+
+###

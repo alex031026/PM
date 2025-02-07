@@ -1,0 +1,5 @@
+
+GET http://localhost:5242/api/v1/country/list
+Accept: application/json
+
+###
