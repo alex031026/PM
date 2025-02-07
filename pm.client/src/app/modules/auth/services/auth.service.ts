@@ -27,7 +27,8 @@ export interface UserState {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `http://localhost:5242/api/v1`;
+  
+  private apiUrl = `/api/v1`;
 
   constructor(private http: HttpClient) { }
 
